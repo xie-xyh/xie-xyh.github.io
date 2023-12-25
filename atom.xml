@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-12-24T13:22:39.607Z</updated>
+  <updated>2023-12-25T07:56:46.930Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的第一篇博客</title>
+    <link href="http://example.com/2023/12/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://example.com/2023/12/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
+    <published>2023-12-25T07:54:03.000Z</published>
+    <updated>2023-12-25T07:56:46.930Z</updated>
+    
+    <content type="html"><![CDATA[<p>历经千辛万苦终于做好了自己的个人博客网站</p><p>感谢知乎<a href="https://zhuanlan.zhihu.com/p/102592286">枫叶</a>的搭建教学</p><p>希望未来自己可以在程序猿的路上越走越远</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;历经千辛万苦终于做好了自己的个人博客网站&lt;/p&gt;
+&lt;p&gt;感谢知乎&lt;a href=&quot;https://zhuanlan.zhihu.com/p/102592286&quot;&gt;枫叶&lt;/a&gt;的搭建教学&lt;/p&gt;
+&lt;p&gt;希望未来自己可以在程序猿的路上越走越远&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
