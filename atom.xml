@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-12-25T07:56:46.930Z</updated>
+  <updated>2024-01-02T08:49:10.020Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2024/01/02/Conda%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://example.com/2024/01/02/Conda%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2024-01-02T08:49:00.596Z</published>
+    <updated>2024-01-02T08:49:10.020Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Conda的常用命令"><a href="#Conda的常用命令" class="headerlink" title="Conda的常用命令"></a>Conda的常用命令</h1><p>1、创建一个虚拟环境: <code>conda create -n 环境名 python=版本</code></p><p>2、查看自己创建的虚拟环境: <code>conda info --envs</code></p><p>3、激活某一虚拟环境: <code>activate 虚拟环境名</code></p><p>4、退出某一虚拟环境: <code>conda deactivate</code></p><p>5、conda安装包: <code>conda install 包名</code></p><p>6、conda环境中也可以使用pip</p><p>7、删除指定包: <code>conda uninstall/remove 包名</code></p><p>8、删除整个环境以及所属的所有包: <code>conda remove -n 环境名 --all</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Conda的常用命令&quot;&gt;&lt;a href=&quot;#Conda的常用命令&quot; class=&quot;headerlink&quot; title=&quot;Conda的常用命令&quot;&gt;&lt;/a&gt;Conda的常用命令&lt;/h1&gt;&lt;p&gt;1、创建一个虚拟环境: &lt;code&gt;conda create -n 环境名 </summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>我的第一篇博客</title>
