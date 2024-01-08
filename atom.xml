@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-01-08T08:52:43.651Z</updated>
+  <updated>2024-01-08T09:26:58.053Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,40 +17,16 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>LeetCode刷题记录</title>
-    <link href="http://example.com/2024/01/08/LeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-1/"/>
-    <id>http://example.com/2024/01/08/LeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95-1/</id>
-    <published>2024-01-08T08:47:05.000Z</published>
-    <updated>2024-01-08T08:52:43.651Z</updated>
-    
-    <content type="html"><![CDATA[   #img7.png为你的图片名称,不可重复 This is an image是图片介绍]]></content>
-    
-    
-      
-      
-    <summary type="html">   #img7.png为你的图片名称,不可重复 This is an image是图片介绍
-</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>LeetCode刷题记录(python)</title>
     <link href="http://example.com/2024/01/07/LeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
     <id>http://example.com/2024/01/07/LeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/</id>
     <published>2024-01-07T06:10:24.000Z</published>
-    <updated>2024-01-08T08:45:50.806Z</updated>
+    <updated>2024-01-08T09:26:58.053Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="1-两数之和（E）"><a href="#1-两数之和（E）" class="headerlink" title="1.两数之和（E）"></a>1.两数之和（E）</h2><h3 id="暴力解法"><a href="#暴力解法" class="headerlink" title="暴力解法"></a>暴力解法</h3><p>第一道题目,也是leetcode之旅的第一题，上来直接两个for循环</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums, target</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>,<span class="built_in">len</span>(nums)):</span><br><span class="line">                num = nums[i] + nums[j]</span><br><span class="line">                <span class="keyword">if</span> num == target:</span><br><span class="line">                    <span class="keyword">return</span> [i, j]</span><br></pre></td></tr></table></figure><p>暴力解法，第一个循环遍历一遍数组的下标，第二个循环从下一个位置往后再遍历一次<br>时间复杂度为$O(N^2)$,空间复杂度为$O(1)$</p><h3 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h3><p>不会做，看的官解</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums, target</span>):</span><br><span class="line">        hash_table = <span class="built_in">dict</span>()</span><br><span class="line">        <span class="keyword">for</span> i,num <span class="keyword">in</span> <span class="built_in">enumerate</span>(nums):</span><br><span class="line">            <span class="keyword">if</span> target - num <span class="keyword">in</span> hash_table:</span><br><span class="line">                <span class="keyword">return</span> hash_table[target-num],i</span><br><span class="line">            hash_table[num] = i</span><br></pre></td></tr></table></figure><p><code>hash_table</code>创造一个空字典，储存数组中每个元素和他的索引<br><code>enumerate(nums)</code>同时返回元素的索引和值<br>使用哈希表的好处在于，遍历一次，查找的时候时间复杂度为$O(N)$,但空间复杂度稍微高了一点，也为$O(N)$</p><h2 id="26-删除有序数组中的重复项"><a href="#26-删除有序数组中的重复项" class="headerlink" title="26. 删除有序数组中的重复项"></a>26. 删除有序数组中的重复项</h2><p>第一次做的时候没做出来,只过了一个answer。。。。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeDuplicates</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">2</span>):</span><br><span class="line">            <span class="keyword">if</span> nums[i+<span class="number">1</span>] == nums[i]:</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">                nums.pop(i+<span class="number">1</span>)</span><br></pre></td></tr></table></figure><p>然后看了官解，要用双指针,一边遍历一边查找相同元素</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeDuplicates</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        slow,fast = <span class="number">0</span>,<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> fast &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">            <span class="keyword">if</span> nums[fast] != nums[slow]:</span><br><span class="line">                slow +=<span class="number">1</span></span><br><span class="line">                nums[slow] = nums[fast]</span><br><span class="line">            fast += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> slow + <span class="number">1</span></span><br></pre></td></tr></table></figure><p>参考别人的一个图解<br><img src="/%5Cimg%5C%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>本博客记录自己开始刷leetcode的记录，包含刷过的题目，遇到的挫折，以及找到的解决办法，希望能给其他人一些参考。</p><span id="more"></span><h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="1-两数之和（E）"><a href="#1-两数之和（E）" class="headerlink" title="1.两数之和（E）"></a>1.两数之和（E）</h2><h3 id="暴力解法"><a href="#暴力解法" class="headerlink" title="暴力解法"></a>暴力解法</h3><p>第一道题目,也是leetcode之旅的第一题，上来直接两个for循环</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums, target</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>,<span class="built_in">len</span>(nums)):</span><br><span class="line">                num = nums[i] + nums[j]</span><br><span class="line">                <span class="keyword">if</span> num == target:</span><br><span class="line">                    <span class="keyword">return</span> [i, j]</span><br></pre></td></tr></table></figure><p>暴力解法，第一个循环遍历一遍数组的下标，第二个循环从下一个位置往后再遍历一次<br>时间复杂度为$O(N^2)$,空间复杂度为$O(1)$</p><h3 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h3><p>不会做，看的官解</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums, target</span>):</span><br><span class="line">        hash_table = <span class="built_in">dict</span>()</span><br><span class="line">        <span class="keyword">for</span> i,num <span class="keyword">in</span> <span class="built_in">enumerate</span>(nums):</span><br><span class="line">            <span class="keyword">if</span> target - num <span class="keyword">in</span> hash_table:</span><br><span class="line">                <span class="keyword">return</span> hash_table[target-num],i</span><br><span class="line">            hash_table[num] = i</span><br></pre></td></tr></table></figure><p><code>hash_table</code>创造一个空字典，储存数组中每个元素和他的索引<br><code>enumerate(nums)</code>同时返回元素的索引和值<br>使用哈希表的好处在于，遍历一次，查找的时候时间复杂度为$O(N)$,但空间复杂度稍微高了一点，也为$O(N)$</p><h2 id="26-删除有序数组中的重复项"><a href="#26-删除有序数组中的重复项" class="headerlink" title="26. 删除有序数组中的重复项"></a>26. 删除有序数组中的重复项</h2><p>第一次做的时候没做出来,只过了一个test。。。。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeDuplicates</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">2</span>):</span><br><span class="line">            <span class="keyword">if</span> nums[i+<span class="number">1</span>] == nums[i]:</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">                nums.pop(i+<span class="number">1</span>)</span><br></pre></td></tr></table></figure><p>然后看了官解，要用双指针,一边遍历一边查找相同元素</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeDuplicates</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        slow,fast = <span class="number">0</span>,<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> fast &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">            <span class="keyword">if</span> nums[fast] != nums[slow]:</span><br><span class="line">                slow +=<span class="number">1</span></span><br><span class="line">                nums[slow] = nums[fast]</span><br><span class="line">            fast += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> slow + <span class="number">1</span></span><br></pre></td></tr></table></figure>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;h1 id=&quot;数组&quot;&gt;&lt;a href=&quot;#数组&quot; class=&quot;headerlink&quot; title=&quot;数组&quot;&gt;&lt;/a&gt;数组&lt;/h1&gt;&lt;h2 id=&quot;1-两数之和（E）&quot;&gt;&lt;a href=&quot;#1-两数之和（E）&quot; class=&quot;headerlink&quot; title=&quot;1.两数之和（</summary>
-      
+    <summary type="html">&lt;p&gt;本博客记录自己开始刷leetcode的记录，包含刷过的题目，遇到的挫折，以及找到的解决办法，希望能给其他人一些参考。&lt;/p&gt;</summary>
     
     
     
@@ -62,17 +38,12 @@
     <link href="http://example.com/2024/01/02/Conda%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>http://example.com/2024/01/02/Conda%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
     <published>2024-01-02T08:54:25.000Z</published>
-    <updated>2024-01-02T08:54:39.829Z</updated>
+    <updated>2024-01-08T09:26:23.078Z</updated>
     
-    <content type="html"><![CDATA[<p>1、创建一个虚拟环境: <code>conda create -n 环境名 python=版本</code></p><p>2、查看自己创建的虚拟环境: <code>conda info --envs</code></p><p>3、激活某一虚拟环境: <code>activate 虚拟环境名</code></p><p>4、退出某一虚拟环境: <code>conda deactivate</code></p><p>5、conda安装包: <code>conda install 包名</code></p><p>6、conda环境中也可以使用pip</p><p>7、删除指定包: <code>conda uninstall/remove 包名</code></p><p>8、删除整个环境以及所属的所有包: <code>conda remove -n 环境名 --all</code></p>]]></content>
+    <content type="html"><![CDATA[<p>本博客记录一些常用的conda的命令</p><span id="more"></span><p>1、创建一个虚拟环境: <code>conda create -n 环境名 python=版本</code></p><p>2、查看自己创建的虚拟环境: <code>conda info --envs</code></p><p>3、激活某一虚拟环境: <code>activate 虚拟环境名</code></p><p>4、退出某一虚拟环境: <code>conda deactivate</code></p><p>5、conda安装包: <code>conda install 包名</code></p><p>6、conda环境中也可以使用pip</p><p>7、删除指定包: <code>conda uninstall/remove 包名</code></p><p>8、删除整个环境以及所属的所有包: <code>conda remove -n 环境名 --all</code></p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;1、创建一个虚拟环境: &lt;code&gt;conda create -n 环境名 python=版本&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;2、查看自己创建的虚拟环境: &lt;code&gt;conda info --envs&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;3、激活某一虚拟环境: &lt;code&gt;acti</summary>
-      
+    <summary type="html">&lt;p&gt;本博客记录一些常用的conda的命令&lt;/p&gt;</summary>
     
     
     
@@ -84,38 +55,12 @@
     <link href="http://example.com/2023/12/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
     <id>http://example.com/2023/12/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
     <published>2023-12-25T07:54:03.000Z</published>
-    <updated>2024-01-02T08:53:06.281Z</updated>
+    <updated>2024-01-08T09:26:27.605Z</updated>
     
-    <content type="html"><![CDATA[<p>历经千辛万苦终于做好了自己的个人博客网站</p><p>感谢知乎<a href="https://zhuanlan.zhihu.com/p/102592286">枫叶</a>的搭建教学</p><p>希望未来自己可以在程序猿的路上越走越远</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;历经千辛万苦终于做好了自己的个人博客网站&lt;/p&gt;
-&lt;p&gt;感谢知乎&lt;a href=&quot;https://zhuanlan.zhihu.com/p/102592286&quot;&gt;枫叶&lt;/a&gt;的搭建教学&lt;/p&gt;
-&lt;p&gt;希望未来自己可以在程序猿的路上越走越远&lt;/p&gt;
-</summary>
-      
+    <content type="html"><![CDATA[<p>第一篇博客的工作记录</p><span id="more"></span><p>历经千辛万苦终于做好了自己的个人博客网站</p><p>感谢知乎<a href="https://zhuanlan.zhihu.com/p/102592286">枫叶</a>的搭建教学</p><p>希望未来自己可以在程序猿的路上越走越远</p>]]></content>
     
     
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2023/12/24/hello-world/"/>
-    <id>http://example.com/2023/12/24/hello-world/</id>
-    <published>2023-12-24T13:22:39.607Z</published>
-    <updated>2023-12-24T13:22:39.607Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
+    <summary type="html">&lt;p&gt;第一篇博客的工作记录&lt;/p&gt;</summary>
     
     
     
