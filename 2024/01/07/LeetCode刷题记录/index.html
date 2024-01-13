@@ -28,7 +28,7 @@
 <meta property="og:description" content="本博客记录自己开始刷leetcode的记录，包含刷过的题目，遇到的挫折，以及找到的解决办法，希望能给其他人一些参考。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-07T06:10:24.000Z">
-<meta property="article:modified_time" content="2024-01-08T09:26:58.053Z">
+<meta property="article:modified_time" content="2024-01-13T15:24:41.629Z">
 <meta property="article:author" content="xieyh">
 <meta name="twitter:card" content="summary">
 
@@ -195,7 +195,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-08 17:26:58" itemprop="dateModified" datetime="2024-01-08T17:26:58+08:00">2024-01-08</time>
+                <time title="修改时间：2024-01-13 23:24:41" itemprop="dateModified" datetime="2024-01-13T23:24:41+08:00">2024-01-13</time>
               </span>
 
           <br>
@@ -204,14 +204,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -235,6 +235,20 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeDuplicates</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">2</span>):</span><br><span class="line">            <span class="keyword">if</span> nums[i+<span class="number">1</span>] == nums[i]:</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">                nums.pop(i+<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <p>然后看了官解，要用双指针,一边遍历一边查找相同元素</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeDuplicates</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        slow,fast = <span class="number">0</span>,<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> fast &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">            <span class="keyword">if</span> nums[fast] != nums[slow]:</span><br><span class="line">                slow +=<span class="number">1</span></span><br><span class="line">                nums[slow] = nums[fast]</span><br><span class="line">            fast += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> slow + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="27-移除元素"><a href="#27-移除元素" class="headerlink" title="27. 移除元素"></a>27. 移除元素</h2><p>第一次做出来的这个解实际上并不高效,44ms,和16.93MB的内存分布,思路是这样的：</p>
+<ol>
+<li>新建一个数组<code>val_index</code>，储存通过遍历检测到<code>nums</code>中和<code>val</code>值一样的索引值</li>
+<li>再使用一个循环，对储存索引值的数组进行遍历，从而得到需要删除的索引值</li>
+<li>在循环中，加入一个循环从后往前遍历<code>nums</code>，删除对应位置的元素<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeElement</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], val: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        length = <span class="built_in">len</span>(nums)</span><br><span class="line">        val_index = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length):</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == val):</span><br><span class="line">                val_index.append(i)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">reversed</span>(val_index):</span><br><span class="line">            <span class="keyword">for</span> delete <span class="keyword">in</span>  <span class="built_in">range</span>(i, length - <span class="number">1</span>):</span><br><span class="line">                nums[delete] = nums[delete + <span class="number">1</span>]</span><br><span class="line">            length -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> length</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>优化了一点，36ms,17MB,减少了对索引值的储存</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeElement</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], val: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        length = <span class="built_in">len</span>(nums)</span><br><span class="line">        val_index = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == val):</span><br><span class="line">                <span class="keyword">for</span> delete <span class="keyword">in</span> <span class="built_in">range</span>(i,length-<span class="number">1</span>):</span><br><span class="line">                    nums[delete] = nums[delete + <span class="number">1</span>]</span><br><span class="line">                length -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> length</span><br></pre></td></tr></table></figure>
+
+<p>网上参考别人的双指针方法，36ms，16.9MB在尝试的过程当中发现一件事情，用for循环比用while循环的时间占用更多</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeElement</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], val: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        a = <span class="number">0</span></span><br><span class="line">        b = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> a &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">            <span class="keyword">if</span> nums[a] != val:</span><br><span class="line">                nums[b] = nums[a]</span><br><span class="line">                b += <span class="number">1</span></span><br><span class="line">            a += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> b</span><br></pre></td></tr></table></figure>
+
+<h2 id="35-搜索插入位置"><a href="#35-搜索插入位置" class="headerlink" title="35.搜索插入位置"></a>35.搜索插入位置</h2><p>刚做这道题时，还不太会二分查找，看到时间复杂度需要使用$O(\log(n))$时，以为又是双指针,后来尝试了下发现没必要，直接暴力解出来,但其实这样的时间复杂度是$O(n)$,不符合题目要求</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">searchInsert</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], target: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] &gt;= target:</span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(nums)</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -356,7 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%EF%BC%88E%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">1.两数之和（E）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E8%A7%A3%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">暴力解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">哈希表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9"><span class="nav-number">1.2.</span> <span class="nav-text">26. 删除有序数组中的重复项</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%EF%BC%88E%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">1.两数之和（E）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E8%A7%A3%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">暴力解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">哈希表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9"><span class="nav-number">1.2.</span> <span class="nav-text">26. 删除有序数组中的重复项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-number">1.3.</span> <span class="nav-text">27. 移除元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#35-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.4.</span> <span class="nav-text">35.搜索插入位置</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -409,12 +423,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">1k</span>
+    <span title="站点总字数">2k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1 分钟</span>
+    <span title="站点阅读时长">2 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
